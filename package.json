@@ -1,0 +1,26 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "description": "Shared",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Johnny Lin",
+  "license": "GPL",
+  "homepage": "https://openaudit.app",
+  "dependencies": {
+    "aws-param-env": "^1.2.0",
+    "aws-sdk": "^2.836.0",
+    "bcrypt": "^5.0.1",
+    "express-rate-limit": "^5.2.6",
+    "express-validator": "^6.9.2",
+    "fs-extra": "^7.0.1",
+    "handlebars": "^4.7.7",
+    "pg": "^8.5.1",
+    "rate-limit-redis": "^2.1.0",
+    "redis": "^3.0.2",
+    "redis-mock": "^0.56.3",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {}
+}

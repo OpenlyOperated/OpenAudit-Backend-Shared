@@ -1,0 +1,7 @@
+Hello,
+
+Click this link to complete your OpenAudit Admin signup:
+{{ confirmemailurl }}
+
+Thanks,
+OpenAudit Team
