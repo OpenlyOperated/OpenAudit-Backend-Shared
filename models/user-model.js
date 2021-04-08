@@ -400,7 +400,7 @@ class User {
       });
   }
 
-  static resendConfirmCode(email) {
+  static resendConfirmEmail(email) {
     var emailHashed = Secure.sha512(email, EMAIL_SALT);
     return Database.query(
       `SELECT *
@@ -409,7 +409,7 @@ class User {
       LIMIT 1`,
       [emailHashed])
       .catch( error => {
-        throw new AppError(500, 58, "Error looking up email for resending confirm code", error);
+        throw new AppError(500, 58, "Error looking up email for resending confirm email", error);
       })
       .then( result => {
         if (result.rows.length !== 1) {
@@ -420,7 +420,7 @@ class User {
           throw new AppError(400, 60, "Email already confirmed. Try signing in.");
         }
         else {
-          return Email.sendConfirmation(email, user.emailConfirmCode, true);
+          return Email.sendConfirmation(email, user.emailConfirmCode);
         }
       });
   }
