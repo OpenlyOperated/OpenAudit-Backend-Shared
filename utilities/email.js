@@ -23,7 +23,7 @@ module.exports = {
   sendConfirmation: (toAddress, code) => {
     let emailEncoded = encodeURIComponent(toAddress)
     return send(
-      `team@${DOMAIN}`,
+      `hi@${DOMAIN}`,
       toAddress,
       "Click to Confirm Email",
       "confirm-email", {
@@ -35,7 +35,7 @@ module.exports = {
   sendChangeEmailConfirmation: (toAddress, code) => {
     let emailEncoded = encodeURIComponent(toAddress)
     return send(
-      `team@${DOMAIN}`,
+      `hi@${DOMAIN}`,
       toAddress,
       "Click to Confirm Change of Email",
       "confirm-change-email", {
@@ -46,7 +46,7 @@ module.exports = {
 
   sendResetPassword: (toAddress, code) => {
     return send(
-      `team@${DOMAIN}`,
+      `hi@${DOMAIN}`,
       toAddress,
       "Your Request to Reset Password",
       "reset-password", {
@@ -58,7 +58,7 @@ module.exports = {
   // === Admin
   sendAuditAlert: (toAddress, action, reason) => {
     return send(
-      `team@${DOMAIN}`,
+      `hi@${DOMAIN}`,
       toAddress,
       "Account Action Notification",
       "audit-alert", {
