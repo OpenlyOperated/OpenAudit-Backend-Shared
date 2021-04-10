@@ -21,6 +21,7 @@ class Doc {
     this.modifyDate = row.modify_date;
     this.featured = row.featured;
     this.alias = row.alias;
+    this.url = row.url;
 
     // joined from user
     this.usersUsername = row.users_username
@@ -187,13 +188,13 @@ class Doc {
     })
   }
 
-  static update(id, title, content, owner, visibility, allowAudit) {
+  static update(id, title, content, owner, visibility, allowAudit, url) {
     return Database.query(
       `UPDATE docs
-      SET content = $1, title = $5, visibility = $4, allow_audit = $6, modify_date = $7
+      SET content = $1, title = $5, visibility = $4, allow_audit = $6, modify_date = $7, url = $8
       WHERE id = $2 AND owner = $3
       RETURNING *`,
-      [content, id, owner, visibility, title, allowAudit, new Date()])
+      [content, id, owner, visibility, title, allowAudit, new Date(), url])
     .catch( error => {
       throw new AppError(500, 299, "Error updating document", error);
     })

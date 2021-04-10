@@ -60,6 +60,7 @@ CREATE TABLE docs (
     create_date timestamp without time zone NOT NULL DEFAULT now(),
     modify_date timestamp without time zone NOT NULL DEFAULT now(),
     title text,
+    url text,
     alias text
 );
 
