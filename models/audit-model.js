@@ -88,6 +88,27 @@ class Audit {
       });
   }
 
+
+  static listPublic(auditorId) {
+    return Database.query(
+      `SELECT audits.auditor, audits.doc, audits.data, docs.title AS docs_title, docs.allow_audit AS docs_allowaudit, docs.id AS docs_id, users.username AS users_username
+        FROM audits
+        INNER JOIN docs ON (audits.doc = docs.id)
+        INNER JOIN users ON (docs.owner = users.id)
+        WHERE audits.auditor = $1 AND docs.visibility = 'public'`,
+      [auditorId])
+      .catch( error => {
+        throw new AppError(500, 7, "Database error listing public documents that were audited: ", error);
+      })
+      .then( result => {
+        var audits = [];
+        result.rows.forEach(row => {
+          audits.push(new Audit(row));
+        });
+        return audits;
+      });
+  }
+
 }
 
 module.exports = Audit;
