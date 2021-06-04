@@ -188,7 +188,7 @@ class User {
   static getWithUsername(username, columns = "*", accessDeleted = false, decryptEmail = false) {
     return Database.query(
       `SELECT ${columns} FROM users
-      WHERE lower(username) = $1
+      WHERE lower(username) = lower($1)
       LIMIT 1`,
       [username])
       .catch( error => {
