@@ -356,7 +356,7 @@ class User {
   static failIfUsernameTaken(username) {
     return Database.query(
       `SELECT * FROM users
-      WHERE lower(username) = $1
+      WHERE lower(username) = lower($1)
       LIMIT 1`,
       [username])
       .catch( error => {
